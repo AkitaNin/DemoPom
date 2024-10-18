@@ -15,15 +15,19 @@ public class runtest {
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello this is new style");
+   /*     System.out.println("Hello this is new style");
 
         WebDriver driverCr = new ChromeDriver();
         driverCr.get("https://www.youtube.com/");
-
+*/
 /* WebDriver driverFx = new FirefoxDriver();
         driverFx.get("https://www.youtube.com/");*/
 
-
+        //student
+        Student st = new Student();
+        st.na
+        st.getInfor();
+        st.display();
 
     }
 }
