@@ -25,7 +25,7 @@ public class runtest {
 
         //student
         Student st = new Student();
-        st.na
+
         st.getInfor();
         st.display();
 
