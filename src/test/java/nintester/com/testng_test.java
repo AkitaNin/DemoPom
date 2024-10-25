@@ -19,9 +19,8 @@ public class testng_test {
     public void Setup(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://ano.trade/");
+        driver.get("https://nbet.com/");
 
-        WebElement tsss = driver.findElement();
 
     }
     @Test
