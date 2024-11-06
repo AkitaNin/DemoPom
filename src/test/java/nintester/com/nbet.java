@@ -20,7 +20,7 @@ public class nbet {
     @Test
     public void login(){
         //Click đăng nhập
-        WebElement btnLogin = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div[2]/div[2]/form/button"));
+        WebElement btnLogin = driver.findElement(By.xpath("//span[contains(text(),  'Đăng Nhập ')]"));
         btnLogin.click();
         try {
             Thread.sleep(2000);
