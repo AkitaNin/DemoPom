@@ -33,4 +33,10 @@ public class dabet_element_locator {
         loginPage.clickBtnlogout();
         loginPage.logoutIfLogoutPopupIsDisplayed();
     }
+
+    @Test
+    public  void register_new(){
+
+    }
+
 }

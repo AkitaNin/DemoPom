@@ -15,6 +15,7 @@ public class LoginPage {
         this.driver = driver;
     }
 
+    //Xpath login
     By BTN_LOGIN = By.xpath("//span[contains(text(), 'Đăng Nhập')]");
     By LOGIN_POPUP = By.xpath("//div[@class ='modal-auth']");
     By INPUT_USERNAME = By.xpath("//input[@placeholder ='Nhập tên đăng nhập']");
@@ -24,6 +25,13 @@ public class LoginPage {
     By LOGOUT_POPUP = By.xpath("//div[contains(text(),'Bạn muốn thoát tài khoản?')]");
     By BTN_SUBMITLOGOUT = By.xpath("//button[contains(text(),'Đăng xuất')]");
 
+    //Xpath Register
+    By BTN_REGISTER = By.xpath("//a[contains(text(), 'Đăng Ký')] ");
+    By INPUT_USERNAME_NEW = By.xpath("//input[@placeholder='Tên đăng nhập từ 6 đến 29 ký tự']");
+    By INPUT_PASSWORD_NEW = By.xpath("//input[@placeholder='Nhập từ 6 đến 32 ký tự']");
+    By INPUT_PHONENUMBER_NEW = By.xpath("//input[@placeholder='Nhập số điện thoại']");
+    By BTN_SUBMIT_REGISTER = By.xpath("//button[@type = 'submit']");
+
     //click btn login
     public void clickBtnlogin (){
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Thời gian chờ tối đa là 10 giây
@@ -31,8 +39,8 @@ public class LoginPage {
         WebElement btnlogin = wait.until(ExpectedConditions.visibilityOfElementLocated(BTN_LOGIN)); // Chờ phần tử hiển thị
         btnlogin.click();
     }
-    //click btn submit
 
+    //click btn submit
     public void clickBtnSMlogin (){
         driver.findElement(BTN_SUBMITLOGIN).click();
     }
@@ -101,7 +109,4 @@ public class LoginPage {
     public void enterPassword(String password){
         driver.findElement(INPUT_PASSWORD).sendKeys(password);
     }
-
-
-
 }
