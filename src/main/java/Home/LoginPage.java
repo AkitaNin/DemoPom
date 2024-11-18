@@ -1,12 +1,14 @@
 package Home;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class LoginPage {
     // dabet
@@ -31,6 +33,12 @@ public class LoginPage {
     By INPUT_PASSWORD_NEW = By.xpath("//input[@placeholder='Nhập từ 6 đến 32 ký tự']");
     By INPUT_PHONENUMBER_NEW = By.xpath("//input[@placeholder='Nhập số điện thoại']");
     By BTN_SUBMIT_REGISTER = By.xpath("//button[@type = 'submit']");
+
+    //Xpath mainpage
+    By ROW_SPORTGAME = By.xpath("//span[contains(text(), 'THỂ THAO ')]");
+    By ROW_CARDGAME = By.xpath("//span[contains(text(), 'GAME BÀI ')]");
+    By ROW_LIVEGAME = By.xpath("//span[contains(text(), 'LIVE ')]");
+
 
     //click btn login
     public void clickBtnlogin (){
@@ -109,4 +117,28 @@ public class LoginPage {
     public void enterPassword(String password){
         driver.findElement(INPUT_PASSWORD).sendKeys(password);
     }
+
+    //scrolling
+    public void scrollUntilElement (By locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement element =  driver.findElement(locator);
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        System.out.println(element.getText());
+    }
+
+    public void listAllTxtCard(){
+       // List<WebElement> cardNames = driver.findElements(By.xpath("//div[@class='container']//div[@class='col col-card-game']//div[@class='card-game-item__name']/span"));
+        List<WebElement> cardNames = driver.findElements(By.xpath("//div[@class='card-game-item__name']/span"));
+        for (WebElement cardName : cardNames) {
+            System.out.println("Tên: " + cardName.getText());
+        }
+    }
+
+    public void listAllTxtSport(){
+        List<WebElement> sportNames = driver.findElements(By.xpath("//div[@class='sport-title-container']//div[@class='title']"));
+        for (WebElement sportName : sportNames) {
+            System.out.println("Tên: " + sportName.getText());
+        }
+    }
+
 }

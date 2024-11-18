@@ -11,9 +11,11 @@ public class Datafaker_Generate {
         String password = faker.internet().password(6, 32);
         String phoneNumber = faker.phoneNumber().phoneNumber();
 
+
         JsonObject userData = new JsonObject();
         userData.addProperty("username", username);
         userData.addProperty("password", password);
         userData.addProperty("phonenumber", phoneNumber);
     }
+
 }

@@ -1,6 +1,7 @@
 package nintester.com;
 
 import Home.LoginPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ public class dabet_element_locator {
     }
 
     @Test
-    public void login_logout(){
+    public void login_logout() {
         loginPage.clickBtnlogin();
         loginPage.enterUserPassIfPopupIsDisplay("nbet001","123456");
         loginPage.clickBtnSMlogin();
@@ -37,6 +38,13 @@ public class dabet_element_locator {
     @Test
     public  void register_new(){
 
+    }
+
+    @Test
+    public void list_gamename(){
+        loginPage.scrollUntilElement(By.xpath("//span[contains(text(), 'LIVE ')]"));
+        loginPage.listAllTxtCard();
+        loginPage.listAllTxtSport();
     }
 
 }
