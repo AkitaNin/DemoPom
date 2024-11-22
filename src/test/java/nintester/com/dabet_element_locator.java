@@ -1,6 +1,6 @@
 package nintester.com;
 
-import Home.LoginPage;
+import Home.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,13 +14,13 @@ public class dabet_element_locator {
     //private static final Logger log = LoggerFactory.getLogger(dabet_element_locator.class);
     private static final Logger log = LoggerFactory.getLogger(dabet_element_locator.class);
     WebDriver driver;
-    LoginPage loginPage;
+    HomePage homePage;
 
     @BeforeTest
     public void Setup () {
         log.info("Setting up the WebDriver and opening the website...");
         driver = new ChromeDriver();
-        loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
         driver.manage().window().maximize();
         driver.get("https://dabet.com/");
         log.info("Setup completed.");
@@ -28,23 +28,29 @@ public class dabet_element_locator {
 
     @Test
     public void login_logout() {
-        loginPage.clickBtnlogin();
-        loginPage.enterUserPassIfPopupIsDisplay("nbet001","123456");
-        loginPage.clickBtnSMlogin();
-        loginPage.clickBtnlogout();
-        loginPage.logoutIfLogoutPopupIsDisplayed();
+        homePage.clickBtnLogin();
+        homePage.enterUserPassIfPopupIsDisplay("nbet001","123456");
+        homePage.clickBtnSmLogin();
+        homePage.clickBtnLogout();
+        homePage.logoutIfLogoutPopupIsDisplayed();
     }
 
     @Test
-    public  void register_new(){
-
+    public  void register_new() throws InterruptedException {
+        homePage.clickBtnRegister();
+        Thread.sleep(3000);
+        homePage.inputDataFake();
+        homePage.clickBtnLogout();
+        homePage.logoutIfLogoutPopupIsDisplayed();
+        Thread.sleep(2000);
+        homePage.loginAgainWithNewAccount();
     }
 
     @Test
     public void list_gamename(){
-        loginPage.scrollUntilElement(By.xpath("//span[contains(text(), 'LIVE ')]"));
-        loginPage.listAllTxtCard();
-        loginPage.listAllTxtSport();
+        homePage.scrollUntilElement(By.xpath("//span[contains(text(), 'LIVE ')]"));
+        homePage.listAllTxtCard();
+        homePage.listAllTxtSport();
     }
 
 }

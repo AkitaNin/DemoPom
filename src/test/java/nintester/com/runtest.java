@@ -1,15 +1,11 @@
 package nintester.com;
-import Home.Basepage;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import Home.BasePage;
 
 
 public class runtest {
 
     public void printF (){
-        Basepage sayHi = new Basepage();
+        BasePage sayHi = new BasePage();
         sayHi.getHi();
 
     }
