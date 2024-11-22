@@ -183,13 +183,6 @@ public class HomePage {
             return false;
         }
     }
-    //Test chuc nang cua dang ky xem truyen du lieu ok ko
-    public void inPutTest(){
-            enter_newusername("username");
-            enter_newpassword("taco1345");
-            enter_phoneNumber("2141252152151");
-            //clickBtnSubmitRegister();
-    }
 
     public void inputDataFake(){
         if (isRegisterPopupisDisplay()){

@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Specific Methods Suite">
+    <test name="Run Specific Methods">
+        <classes>
+            <class name="nintester.com.dabet_element_locator">
+                <methods>
+                    <!-- Chỉ định các phương thức cụ thể để chạy -->
+                    <include name="login_logout"/>
+                    <include name="register_new"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

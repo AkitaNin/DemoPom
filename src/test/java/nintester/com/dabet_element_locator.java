@@ -6,24 +6,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 public class dabet_element_locator {
     //private static final Logger log = LoggerFactory.getLogger(dabet_element_locator.class);
-    private static final Logger log = LoggerFactory.getLogger(dabet_element_locator.class);
+    //private static final Logger log = LoggerFactory.getLogger(dabet_element_locator.class);
     WebDriver driver;
     HomePage homePage;
 
-    @BeforeTest
+    @BeforeMethod
     public void Setup () {
-        log.info("Setting up the WebDriver and opening the website...");
+        //log.info("Setting up the WebDriver and opening the website...");
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
         driver.manage().window().maximize();
         driver.get("https://dabet.com/");
-        log.info("Setup completed.");
+        //log.info("Setup completed.");
+    }
+
+    @AfterMethod
+    public void tearDown(){
+        driver.quit();
     }
 
     @Test
